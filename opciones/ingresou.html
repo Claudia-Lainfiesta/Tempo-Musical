@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempo Musical - Ingreso de Usuarios</title>
+    <link rel="stylesheet" href="styles3.css">
+    <link rel="shortcut icon" href="../img/icono.png" type="image/x-icon">
+</head>
+<body>
+    <form action="ingresar_user.php" method="POST">
+        <h1>Ingresa un Usuario nuevo</h1>
+        <div class="conteiner">
+            <div class="minconteiner">
+                <label for="id">Código:</label>
+                <input type="text" name="codigo_trabajador" id="" required>
+            </div>
+            <div class="minconteiner">
+                <label for="user">Usuario:</label>
+                <input type="text" name="user" id="" required>
+            </div>
+        </div>
+        <div class="conteiner">
+            <div class="minconteiner">
+                <label for="correo">Correo:</label>
+                <input type="text" name="correo" id="correo" required>
+            </div>
+            <div class="minconteiner">
+                <label for="contra">Contraseña:</label>
+                <input type="password" id="password" name="contra" required>
+            </div>
+        </div>
+        <button type="submit" value="Registrar">Ingresar</button>
+        <button style="margin-left: 2%;"><a href="../inicio.html">Regresar</a></button>
+    </form>
+    <script>
+        function validateEmail() {
+            var emailInput = document.getElementById("correo");
+            var email = emailInput.value;
+            var gmailRegex = /@gmail\.com$/i;
+            var hotmailRegex = /@hotmail\.com$/i;
+
+            if (email.match(gmailRegex) || email.match(hotmailRegex)) {
+                return true;
+            } else {
+                alert("El correo debe ser de Gmail o Hotmail");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
