@@ -9,9 +9,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <script>
+        function validar() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var regex = /^[A-Za-z]+$/;
+            if (!regex.test(username) || !regex.test(password)) {
+                alert('Ingrese solo letras en el usuario y la contraseña.');
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
-    <form action="procesar_login.php" method="post">
+    <form action="procesar_login.php" method="post" onsubmit="return validar()">
         <h2>Iniciar sesión</h2>
         <label for="username">Usuario:</label>
         <input type="text" id="username" name="username" required>

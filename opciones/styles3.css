@@ -41,6 +41,7 @@ form input{
     border-radius: 5px;
     resize: none;
     margin-top: 3%;
+    width: 85%;
 }
 form input:focus
 {

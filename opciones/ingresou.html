@@ -6,9 +6,37 @@
     <title>Tempo Musical - Ingreso de Usuarios</title>
     <link rel="stylesheet" href="styles3.css">
     <link rel="shortcut icon" href="../img/icono.png" type="image/x-icon">
+
+    <script>
+        function validarCorreo() {
+            var correo = document.getElementById("correo").value;
+
+            if (correo.includes("@") && (correo.endsWith("gmail.com") || correo.endsWith("hotmail.com"))) {
+                calcularEdad();
+                return true;
+            } else {
+                window.alert("Correo no válido. Debe contener '@' y tener una terminación de 'gmail.com' o 'hotmail.com'");
+                return false;
+            }
+        }
+
+        function calcularEdad() {
+            var fechaNacimiento = document.getElementById("edad").value;
+            var fechaActual = new Date();
+            var fechaNac = new Date(fechaNacimiento);
+            var edad = fechaActual.getFullYear() - fechaNac.getFullYear();
+
+            // Verificar si ya cumplió años en el año actual
+            if (fechaNac.getMonth() > fechaActual.getMonth() || (fechaNac.getMonth() === fechaActual.getMonth() && fechaNac.getDate() > fechaActual.getDate())) {
+                edad--;
+            }
+
+            document.getElementById("mostrarEdad").innerText = edad + " años";
+        }
+    </script>
 </head>
 <body>
-    <form action="ingresar_user.php" method="POST">
+    <form action="ingresar_user.php" method="POST" onsubmit="return validarCorreo()">
         <h1>Ingresa un Usuario nuevo</h1>
         <div class="conteiner">
             <div class="minconteiner">
@@ -30,23 +58,20 @@
                 <input type="password" id="password" name="contra" required>
             </div>
         </div>
+        <div class="conteiner">
+            <div class="minconteiner">
+                <label for="edad">Edad:</label>
+                <br>
+                <input type="date" id="edad" value="" min="1900-01-01" max="2023-12-31" name="edad" required>
+            </div>
+            <div class="minconteiner">
+                <label for="">La edad que tienes es de:</label>
+                <p id="mostrarEdad"></p>
+                <button type="button" onclick="calcularEdad()" style="font-size: 10px;">Validar</button>
+            </div>
+        </div>
         <button type="submit" value="Registrar">Ingresar</button>
         <button style="margin-left: 2%;"><a href="../inicio.html">Regresar</a></button>
     </form>
-    <script>
-        function validateEmail() {
-            var emailInput = document.getElementById("correo");
-            var email = emailInput.value;
-            var gmailRegex = /@gmail\.com$/i;
-            var hotmailRegex = /@hotmail\.com$/i;
-
-            if (email.match(gmailRegex) || email.match(hotmailRegex)) {
-                return true;
-            } else {
-                alert("El correo debe ser de Gmail o Hotmail");
-                return false;
-            }
-        }
-    </script>
 </body>
 </html>
