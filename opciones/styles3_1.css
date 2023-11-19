@@ -9,6 +9,7 @@ body{
     background-size:cover;
     background-repeat:no-repeat;
     background-position: center center;
+    background-attachment: fixed;
     width: auto;
     height: 650px;
     display: flex;
@@ -30,9 +31,9 @@ button
     margin: 5%;
     margin-bottom: 0%;
     color: #fff;
-    background: #799F0C;
-    background: -webkit-linear-gradient(to right, #ACBB78, #799F0C);
-    background: linear-gradient(to right, #ACBB78, #799F0C);
+    background: #0f0c29;
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
     border: none;
     border-radius: 10px;
 }
@@ -42,6 +43,6 @@ button a{
 }
 button a:hover
 {
-    color: #000;
+    color: #979595;
     transition: 0.5s;
 }

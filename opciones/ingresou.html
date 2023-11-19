@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +26,6 @@
             var fechaNac = new Date(fechaNacimiento);
             var edad = fechaActual.getFullYear() - fechaNac.getFullYear();
 
-            // Verificar si ya cumplió años en el año actual
             if (fechaNac.getMonth() > fechaActual.getMonth() || (fechaNac.getMonth() === fechaActual.getMonth() && fechaNac.getDate() > fechaActual.getDate())) {
                 edad--;
             }
@@ -60,7 +59,7 @@
         </div>
         <div class="conteiner">
             <div class="minconteiner">
-                <label for="edad">Edad:</label>
+                <label for="edad">Fecha de nacimiento:</label>
                 <br>
                 <input type="date" id="edad" value="" min="1900-01-01" max="2023-12-31" name="edad" required>
             </div>

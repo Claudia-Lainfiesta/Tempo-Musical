@@ -1,35 +1,46 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $codigo_trabajador = $_POST["codigo_trabajador"];
-    $user = $_POST["user"];
-    $correo = $_POST["correo"];
-    $contra = $_POST["contra"];
+// Establecer la conexión a la base de datos (asegúrate de cambiar los valores según tu configuración)
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "tempo";
 
-    // Conectarse a la base de datos
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "tempo";
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    $conn = new mysqli($servername, $username, $password, $database);
-
-    if ($conn->connect_error) {
-        die("La conexión a la base de datos falló: " . $conn->connect_error);
-    }
-
-    // Preparar la consulta SQL para insertar los datos en la tabla usuarios
-    $sql = "INSERT INTO usuarios (codigo_trabajador, user, correo, contra) VALUES ('$codigo_trabajador', '$user', '$correo', '$contra')";
-
-    if ($conn->query($sql) === TRUE) {
-        header("Location: datos_correctos.html");
-        exit();
-    } else {
-        header("Location: datos_incorrectos.html");
-        exit();
-    }
-
-    $conn->close();
+// Verificar la conexión
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
 }
+
+// Recibir datos del formulario
+$codigo_trabajador = $_POST['codigo_trabajador'];
+$user = $_POST['user'];
+$correo = $_POST['correo'];
+$contra = $_POST['contra'];
+$fecha_nacimiento = $_POST['edad'];
+
+// Calcular la edad
+$fechaNac = new DateTime($fecha_nacimiento);
+$hoy = new DateTime();
+$edad = $hoy->diff($fechaNac)->y;
+
+// Insertar datos en la base de datos
+$sql = "INSERT INTO usuarios (codigo_trabajador, user, correo, contra, fecha_nacimiento, edad) 
+        VALUES ('$codigo_trabajador', '$user', '$correo', '$contra', '$fecha_nacimiento', '$edad')";
+
+if ($conn->query($sql) === TRUE) {
+    // Redireccionar a la página de datos_correctos.html
+    header("Location: datos_correctos.html");
+    exit();
+} else {
+    // Redireccionar a la página de datos_incorrectos.html
+    header("Location: datos_incorrectos.html");
+    exit();
+}
+
+// Cerrar la conexión
+$conn->close();
 ?>
+
 
 
