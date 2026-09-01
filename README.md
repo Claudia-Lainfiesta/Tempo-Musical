@@ -33,4 +33,4 @@ Un reproductor de audio e interfaz gráfica interactiva diseñado para ofrecer u
 
 1. **Clona este repositorio:**
    ```bash
-   git clone https://github.com/Claudia-Lainfiesta/java-maze-solver.git
+   git clone [https://github.com/Claudia-Lainfiesta/java-maze-solver.git](https://github.com/Claudia-Lainfiesta/java-maze-solver.git)
