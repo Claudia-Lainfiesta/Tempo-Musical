@@ -22,10 +22,10 @@ Un reproductor de audio e interfaz gráfica interactiva diseñado para ofrecer u
 
 ## Estructura del Proyecto
 
-├── img/                 # Recursos gráficos y multimedia
-├── error_sesion.html    # Manejo de vista de error de sesión
-├── index.html           # Pantalla principal del reproductor
-└── .gitignore           # Exclusión de archivos temporales y de configuración
+├── img/                 # Recursos gráficos y multimedia  
+├── error_sesion.html    # Manejo de vista de error de sesión  
+├── index.html           # Pantalla principal del reproductor  
+└── .gitignore           # Exclusión de archivos temporales y de configuración  
 
 ---
 
