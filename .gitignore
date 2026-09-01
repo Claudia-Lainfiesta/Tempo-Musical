@@ -1,0 +1,20 @@
+# IDEs y Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*.DS_Store
+
+# Archivos de sistema operativo
+Thumbs.db
+desktop.ini
+
+# Logs y temporales
+*.log
+*.tmp
+*.temp
+
+# Archivos de compilación o ejecución local
+*.exe
+*.o
+*.obj
